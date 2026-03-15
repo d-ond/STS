@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\code\\cs\\Slay the Spire Design\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{077A14F1-D95B-4336-8F32-9C4623EDC8DD}|Slay the Spire Design\\Slay the Spire Design.csproj|c:\\code\\cs\\slay the spire design\\slay the spire design\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{077A14F1-D95B-4336-8F32-9C4623EDC8DD}|Slay the Spire Design\\Slay the Spire Design.csproj|solutionrelative:slay the spire design\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{077A14F1-D95B-4336-8F32-9C4623EDC8DD}|Slay the Spire Design\\Slay the Spire Design.csproj|c:\\code\\cs\\slay the spire design\\slay the spire design\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{077A14F1-D95B-4336-8F32-9C4623EDC8DD}|Slay the Spire Design\\Slay the Spire Design.csproj|solutionrelative:slay the spire design\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{077A14F1-D95B-4336-8F32-9C4623EDC8DD}|Slay the Spire Design\\Slay the Spire Design.csproj|c:\\code\\cs\\slay the spire design\\slay the spire design\\ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{077A14F1-D95B-4336-8F32-9C4623EDC8DD}|Slay the Spire Design\\Slay the Spire Design.csproj|solutionrelative:slay the spire design\\ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{077A14F1-D95B-4336-8F32-9C4623EDC8DD}|Slay the Spire Design\\Slay the Spire Design.csproj|c:\\code\\cs\\slay the spire design\\slay the spire design\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{077A14F1-D95B-4336-8F32-9C4623EDC8DD}|Slay the Spire Design\\Slay the Spire Design.csproj|solutionrelative:slay the spire design\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{077A14F1-D95B-4336-8F32-9C4623EDC8DD}|Slay the Spire Design\\Slay the Spire Design.csproj|c:\\code\\cs\\slay the spire design\\slay the spire design\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{077A14F1-D95B-4336-8F32-9C4623EDC8DD}|Slay the Spire Design\\Slay the Spire Design.csproj|solutionrelative:slay the spire design\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\code\\cs\\Slay the Spire Design\\Slay the Spire Design\\Program.cs",
+              "RelativeDocumentMoniker": "Slay the Spire Design\\Program.cs",
+              "ToolTip": "C:\\code\\cs\\Slay the Spire Design\\Slay the Spire Design\\Program.cs",
+              "RelativeToolTip": "Slay the Spire Design\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-15T15:44:14.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UI.cs",
+              "DocumentMoniker": "C:\\code\\cs\\Slay the Spire Design\\Slay the Spire Design\\UI.cs",
+              "RelativeDocumentMoniker": "Slay the Spire Design\\UI.cs",
+              "ToolTip": "C:\\code\\cs\\Slay the Spire Design\\Slay the Spire Design\\UI.cs",
+              "RelativeToolTip": "Slay the Spire Design\\UI.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAADwv1wAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T19:59:56.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TurnManager.cs",
+              "DocumentMoniker": "C:\\code\\cs\\Slay the Spire Design\\Slay the Spire Design\\TurnManager.cs",
+              "RelativeDocumentMoniker": "Slay the Spire Design\\TurnManager.cs",
+              "ToolTip": "C:\\code\\cs\\Slay the Spire Design\\Slay the Spire Design\\TurnManager.cs",
+              "RelativeToolTip": "Slay the Spire Design\\TurnManager.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T19:58:24.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Character.cs",
+              "DocumentMoniker": "C:\\code\\cs\\Slay the Spire Design\\Slay the Spire Design\\Character.cs",
+              "RelativeDocumentMoniker": "Slay the Spire Design\\Character.cs",
+              "ToolTip": "C:\\code\\cs\\Slay the Spire Design\\Slay the Spire Design\\Character.cs",
+              "RelativeToolTip": "Slay the Spire Design\\Character.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T19:55:41.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Deck.cs",
+              "DocumentMoniker": "C:\\code\\cs\\Slay the Spire Design\\Slay the Spire Design\\Deck.cs",
+              "RelativeDocumentMoniker": "Slay the Spire Design\\Deck.cs",
+              "ToolTip": "C:\\code\\cs\\Slay the Spire Design\\Slay the Spire Design\\Deck.cs",
+              "RelativeToolTip": "Slay the Spire Design\\Deck.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T19:26:19.138Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\obj\Debug\net8.0\Slay the Spire Design.GeneratedMSBuildEditorConfig.editorconfig
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\obj\Debug\net8.0\Slay the Spire Design.AssemblyInfoInputs.cache
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\obj\Debug\net8.0\Slay the Spire Design.AssemblyInfo.cs
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\obj\Debug\net8.0\Slay the Spire Design.csproj.CoreCompileInputs.cache
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\bin\Debug\net8.0\Slay the Spire Design.exe
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\bin\Debug\net8.0\Slay the Spire Design.deps.json
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\bin\Debug\net8.0\Slay the Spire Design.runtimeconfig.json
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\bin\Debug\net8.0\Slay the Spire Design.dll
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\bin\Debug\net8.0\Slay the Spire Design.pdb
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\obj\Debug\net8.0\Slay the Spire Design.dll
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\obj\Debug\net8.0\refint\Slay the Spire Design.dll
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\obj\Debug\net8.0\Slay the Spire Design.pdb
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\obj\Debug\net8.0\Slay the Spire Design.genruntimeconfig.cache
+C:\code\cs\Slay the Spire Design\Slay the Spire Design\obj\Debug\net8.0\ref\Slay the Spire Design.dll

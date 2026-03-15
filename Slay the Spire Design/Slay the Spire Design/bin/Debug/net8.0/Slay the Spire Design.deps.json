@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Slay the Spire Design/1.0.0": {
+        "runtime": {
+          "Slay the Spire Design.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Slay the Spire Design/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
