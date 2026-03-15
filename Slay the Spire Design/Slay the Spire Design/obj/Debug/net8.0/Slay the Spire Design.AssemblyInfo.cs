@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Slay the Spire Design")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2c1327af1ff7f4ff462ac3e3d6adf1857c9084d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Slay the Spire Design")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Slay the Spire Design")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

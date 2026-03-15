@@ -111,4 +111,22 @@ namespace Slay_the_Spire_Design
             Exhaust = false; // blanket item for now
         }
     }
+
+    public class Action
+    {
+        public string Name;
+        public int Damage;
+        public bool isStatus;
+        public int Block;
+        public int Heal;
+        public string[] Intent;
+
+        public Action(string Name, int Damage, int Block, string[] Intent)
+        {
+            this.Name = Name;
+            this.Damage = Damage;
+            this.Block = Block;
+            this.Intent = Intent;
+        }
+    }
 }

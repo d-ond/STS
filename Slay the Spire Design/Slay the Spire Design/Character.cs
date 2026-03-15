@@ -23,8 +23,28 @@ namespace Slay_the_Spire_Design
 
         public void ModifyHP(int amount)
         {
-            // block does nothing right now with HP calcs
-            HP += amount;
+            // if block is above 0, the amount will take that first
+            if (Block > 0)
+            {
+                if (amount > Block)
+                {
+                    amount -= Block;
+                    Block = 0;
+                }
+                else
+                {
+                    ModifyBlock(-amount);
+                    return;
+                }
+            }
+
+            if (amount == 0)
+            {
+                return;
+            }
+
+            // damages HP. simply adjusting here for ease of use
+            HP -= amount;
             HP = Math.Min(MaxHP, HP);
             if (HP <= 0)
             {
@@ -40,11 +60,6 @@ namespace Slay_the_Spire_Design
             {
                 Block = 0;
             }
-        }
-
-        public void PrintCharacterStats()
-        {
-            Console.Write($"{Name}:\nHP: {HP} / {MaxHP}\nBlock: {Block}\n");
         }
     }
 
@@ -65,11 +80,34 @@ namespace Slay_the_Spire_Design
 
     public class Dummy : Character
     {
+        public List<Action> Actions;
+        public Action _action { get; set; }
+
         public Dummy()
         {
             HP = 100;
             MaxHP = HP;
             Name = "Dummy";
+
+            // overly complicated way of assigning odds of 2/5, 2/5, 1/5 to the actions. Likely better to assign an intent percentage.
+            Actions = [];
+            for (int i = 0; i < 2; i++)
+            {
+                Action damage = new Action("Attack", 7, 0, ["Damage"]);
+                Action block = new Action("Block", 0, 4, ["Block"]);
+                Action both = new Action("Attack and Block", 3, 3,["Damage", "Block"]);
+                Actions.Add(damage);
+                Actions.Add(block);
+                Actions.Add(both);
+            }
+            Actions.RemoveAt(Actions.Count - 1);
+        }
+
+        public void ChooseAction()
+        {
+            Random random = new Random();
+            int choice = random.Next(0, Actions.Count);
+            _action = Actions[choice];
         }
     }
 }
