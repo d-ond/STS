@@ -15,6 +15,8 @@ namespace Slay_the_Spire_Design
         public int Block { get; set; }
         public int Vulnerable { get; set; }
         public int Energy { get; set; }
+        public int Strength { get; set; }
+        public int Weak { get; set; }
 
         public Character()
         {
@@ -23,6 +25,11 @@ namespace Slay_the_Spire_Design
 
         public void ModifyHP(int amount)
         {
+            if (Vulnerable > 0)
+            {
+                amount = (int) (amount * 1.5);
+            }
+
             // if block is above 0, the amount will take that first
             if (Block > 0)
             {
@@ -60,6 +67,20 @@ namespace Slay_the_Spire_Design
             {
                 Block = 0;
             }
+        }
+
+        public int DamageDealt(int amount)
+        {
+            // realistically this is not correct
+            if (Weak > 0)
+            {
+                amount = (int)(amount * 0.75);
+            }
+            if (Strength > 0)
+            {
+                amount = (int)(amount * 1.25);
+            }
+            return amount;
         }
     }
 

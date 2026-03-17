@@ -25,14 +25,14 @@ namespace Slay_the_Spire_Design
             for (int i = 0; i < 4; i++)
             {
                 // create strikes, defends
-                var strike = new Card("Strike", 6, 0, 1);
-                var defend = new Card("Defend", 0, 5, 1);
+                var strike = new Card("Strike", 6, 0, 1, "Deal 6 damage", 0, 0);
+                var defend = new Card("Defend", 0, 5, 1, "Block 5 damage", 0, 0);
                 drawPile.Add(strike);
                 drawPile.Add(defend);
             }
             // create bash
-            var bash = new Card("Bash", 8, 0, 2);
-            var weaken = new Card("Weaken", 2, 0, 0);
+            var bash = new Card("Bash", 8, 0, 2, "Deal 8 damage and apply 1 vulnerable", 1, 0);
+            var weaken = new Card("Weaken", 2, 0, 0, "Deal 2 damage and apply 1 weak", 0, 1);
             drawPile.Add(bash);
             drawPile.Add(weaken);
             drawPile.Add(weaken);
@@ -91,42 +91,6 @@ namespace Slay_the_Spire_Design
                 original.RemoveAt(original.Count - 1);
                 target.Add(card);
             }
-        }
-    }
-
-    public class Card
-    {
-        public string Name;
-        public int Damage;
-        public int Block;
-        public int Cost;
-        public bool Exhaust;
-
-        public Card(string Name, int Damage, int Block, int Cost)
-        {
-            this.Name = Name;
-            this.Damage = Damage;
-            this.Block = Block;
-            this.Cost = Cost;
-            Exhaust = false; // blanket item for now
-        }
-    }
-
-    public class Action
-    {
-        public string Name;
-        public int Damage;
-        public bool isStatus;
-        public int Block;
-        public int Heal;
-        public string[] Intent;
-
-        public Action(string Name, int Damage, int Block, string[] Intent)
-        {
-            this.Name = Name;
-            this.Damage = Damage;
-            this.Block = Block;
-            this.Intent = Intent;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Slay_the_Spire_Design
 {
     public class TurnManager
     {
-        public List<CardCommand> ActionQueue;
+        public List<EffectActionCommand> ActionQueue;
         public int turnCount = 0;
         public UI ui = new();
         public Player player;
@@ -21,7 +21,7 @@ namespace Slay_the_Spire_Design
         {
             this.player = player;
             this.dummy = dummy;
-            ActionQueue = new List<CardCommand>();
+            ActionQueue = new List<EffectActionCommand>();
         }
 
         public void RunBattle()
@@ -76,6 +76,7 @@ namespace Slay_the_Spire_Design
                     Environment.Exit(0);
                 }
 
+                // this is technically where the turn ends
                 if (result.ToLower().StartsWith('e'))
                 {
                     MainPhase = false;
@@ -88,13 +89,17 @@ namespace Slay_the_Spire_Design
                     result = Console.ReadLine();
                     success = int.TryParse(result, out choiceIdx);
                 }
+
                 if (player.PlayerDeck.handPile[choiceIdx - 1].Cost <= player.Energy)
                 {
-                    CardCommand playCard = new(player.PlayerDeck.handPile[choiceIdx - 1], player, dummy);
+                    EffectActionCommand playCard = new(player.PlayerDeck.handPile[choiceIdx - 1], player, dummy);
+                    
                     playCard.Execute();
 
                     BattleActive = !IsBattleOver();
                     if (!BattleActive) { MainPhase = false; break; }
+
+                    player.Energy -= player.PlayerDeck.handPile[choiceIdx - 1].Cost;
 
                     var _card = player.PlayerDeck.handPile[choiceIdx - 1];
                     player.PlayerDeck.handPile.RemoveAt(choiceIdx - 1);
@@ -129,7 +134,7 @@ namespace Slay_the_Spire_Design
             // enemy picks its move, resolves it through card commands
             ui.WriteMessage("\tEnemy turn...");
             dummy.Block = 0;
-            EnemyCommand enemyAction = new(dummy._action, dummy, player);
+            EffectActionCommand enemyAction = new(dummy._action, dummy, player);
             enemyAction.Execute();
             BattleActive = !IsBattleOver();
 

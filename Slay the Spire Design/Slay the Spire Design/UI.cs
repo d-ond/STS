@@ -20,7 +20,7 @@ namespace Slay_the_Spire_Design
             int count = 1;
             foreach (var card in pile)
             {
-                Console.WriteLine($"\t{count}. {card.Name}");
+                Console.WriteLine($"\t{count}. {card.Name}: {card.Description}");
                 count++;
             }
             Console.WriteLine();
