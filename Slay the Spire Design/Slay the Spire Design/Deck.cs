@@ -25,14 +25,14 @@ namespace Slay_the_Spire_Design
             for (int i = 0; i < 4; i++)
             {
                 // create strikes, defends
-                var strike = new Card("Strike", 6, 0, 1, "Deal 6 damage", 0, 0);
-                var defend = new Card("Defend", 0, 5, 1, "Block 5 damage", 0, 0);
+                var strike = new Card("Strike", 6, 0, 1, "Deal 6 damage", 0, 0, true, false);
+                var defend = new Card("Defend", 0, 5, 1, "Block 5 damage", 0, 0, false, true);
                 drawPile.Add(strike);
                 drawPile.Add(defend);
             }
             // create bash
-            var bash = new Card("Bash", 8, 0, 2, "Deal 8 damage and apply 1 vulnerable", 1, 0);
-            var weaken = new Card("Weaken", 2, 0, 0, "Deal 2 damage and apply 1 weak", 0, 1);
+            var bash = new Card("Bash", 8, 0, 2, "Deal 8 damage and apply 1 vulnerable", 1, 0, true, false);
+            var weaken = new Card("Weaken", 2, 0, 0, "Deal 2 damage and apply 1 weak", 0, 1, true, false);
             drawPile.Add(bash);
             drawPile.Add(weaken);
             drawPile.Add(weaken);

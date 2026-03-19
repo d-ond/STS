@@ -28,8 +28,10 @@ namespace Slay_the_Spire_Design
         public int Cost;
         public bool Exhaust;
         public string Description;
+        public bool isTargetable;
+        public bool isSelfTargeted;
 
-        public Card(string Name, int Damage, int Block, int Cost, string Description, int Vulnerable, int Weak) : base(Name, Damage, Block)
+        public Card(string Name, int Damage, int Block, int Cost, string Description, int Vulnerable, int Weak, bool isTargetable, bool isSelfTargeted) : base(Name, Damage, Block)
         {
             this.Name = Name;
             this.Damage = Damage;
@@ -39,16 +41,18 @@ namespace Slay_the_Spire_Design
             this.Vulnerable = Vulnerable;
             this.Weak = Weak;
             Exhaust = false; // blanket item for now
+            this.isTargetable = isTargetable;
+            this.isSelfTargeted = isSelfTargeted;
         }
     }
 
-    public class Action : Effects
+    public class EnemyAction : Effects
     {
         public bool isStatus;
         public int Heal;
         public string[] Intent;
 
-        public Action(string Name, int Damage, int Block, string[] Intent) : base(Name, Damage, Block)
+        public EnemyAction(string Name, int Damage, int Block, string[] Intent) : base(Name, Damage, Block)
         {
             this.Name = Name;
             this.Damage = Damage;
@@ -78,8 +82,9 @@ namespace Slay_the_Spire_Design
 
             if (_effect.Damage != 0)
             {
-                _target.ModifyHP(_effect.Damage);
-                _ui.WriteMessage($"\t{_target.Name} took {_effect.Damage} damage.");
+                var dmg = _user.DamageDealt(_effect.Damage);
+                _target.ModifyHP(dmg);
+                _ui.WriteMessage($"\t{_target.Name} took {dmg} damage.");
                 _ui.PrintCharacterStats(_target);
             }
 
@@ -92,15 +97,17 @@ namespace Slay_the_Spire_Design
 
             if (_effect.Vulnerable != 0)
             {
-                _target.Vulnerable = _effect.Vulnerable;
+                _target.Vulnerable += _effect.Vulnerable;
                 _ui.WriteMessage($"\t{_target.Name} receives {_effect.Vulnerable} vulnerable.");
             }
 
             if (_effect.Weak != 0)
             {
-                _target.Weak = _effect.Weak;
+                _target.Weak += _effect.Weak;
                 _ui.WriteMessage($"\t{_target.Name} receives {_effect.Weak} weak.");
             }
+
+            // drawing and discarding? as a future implementation
         }
     }
 }

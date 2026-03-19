@@ -26,6 +26,18 @@ namespace Slay_the_Spire_Design
             Console.WriteLine();
         }
 
+        public void PrintEnemyParty(List<Enemy> enemyParty)
+        {
+            Console.WriteLine("Attack who?");
+            int count = 1;
+            foreach (var enemy in enemyParty)
+            {
+                Console.WriteLine($"\t{count}. {enemy.Name} : {enemy.HP} / {enemy.MaxHP}");
+                count++;
+            }
+            Console.WriteLine();
+        }
+
         public void ShowIntent(string[] intents)
         {
             Console.Write("Enemy intends to: ");

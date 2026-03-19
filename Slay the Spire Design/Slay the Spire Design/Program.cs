@@ -6,10 +6,11 @@ namespace Slay_the_Spire_Design
         {
             Player player = new("Player", 3);
             Dummy dummy = new();
+            Dummy dummy2 = new();
 
             UI ui = new();
 
-            TurnManager turnManager = new(player, dummy);
+            TurnManager turnManager = new(player, [dummy, dummy2]);
 
             // general loop - will need to have the battle true or false depending on factors (outcomes)
             ui.WriteMessage("==== START COMBAT ====\n");

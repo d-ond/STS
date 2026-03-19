@@ -13,15 +13,23 @@ namespace Slay_the_Spire_Design
         public int turnCount = 0;
         public UI ui = new();
         public Player player;
-        public Dummy dummy;
+        //public Dummy dummy;
         public bool MainPhase = false;
         public bool BattleActive = true;
 
-        public TurnManager(Player player, Dummy dummy)
+        // enemy party
+        public List<Enemy> enemyParty;
+        public List<Enemy> aliveEnemyParty = [];
+
+        public TurnManager(Player player, List<Enemy> enemyParty)
         {
             this.player = player;
-            this.dummy = dummy;
-            ActionQueue = new List<EffectActionCommand>();
+            this.enemyParty = enemyParty;
+            ActionQueue = [];
+            foreach (var enemy in enemyParty)
+            {
+                aliveEnemyParty.Add(enemy);
+            }
         }
 
         public void RunBattle()
@@ -53,7 +61,13 @@ namespace Slay_the_Spire_Design
             MainPhase = true;
 
             // get the enemy action
-            dummy.ChooseAction();
+            foreach (Enemy enemy in aliveEnemyParty)
+            {
+                enemy.ChooseAction();
+            }
+
+            // tick down stats 
+            player.TickStatusDown();
         }
 
         public void StartMainPhase()
@@ -62,7 +76,10 @@ namespace Slay_the_Spire_Design
             while (MainPhase)
             {
                 ui.WriteMessage($"Your move? (Energy: {player.Energy} / {player.MaxEnergy})");
-                ui.ShowIntent(dummy._action.Intent);
+                foreach (var enemy in aliveEnemyParty)
+                {
+                    ui.ShowIntent(enemy._action.Intent);
+                }
 
                 ui.PrintHand(player.PlayerDeck.handPile);
 
@@ -92,11 +109,52 @@ namespace Slay_the_Spire_Design
 
                 if (player.PlayerDeck.handPile[choiceIdx - 1].Cost <= player.Energy)
                 {
-                    EffectActionCommand playCard = new(player.PlayerDeck.handPile[choiceIdx - 1], player, dummy);
-                    
+                    EffectActionCommand playCard;
+                    var tchoiceIdx = 1;
+
+                    if (player.PlayerDeck.handPile[choiceIdx - 1].isSelfTargeted)
+                    {
+                        playCard = new(player.PlayerDeck.handPile[choiceIdx - 1], player, player);
+                    }
+
+                    else if (player.PlayerDeck.handPile[choiceIdx - 1].isTargetable)
+                    {
+                        ui.PrintEnemyParty(aliveEnemyParty);
+
+                        bool tsuccess;
+                        var tresult = Console.ReadLine();
+                        tsuccess = int.TryParse(tresult, out tchoiceIdx);
+
+                        while (!tsuccess || tchoiceIdx < 1 || tchoiceIdx > aliveEnemyParty.Count)
+                        {
+                            int aliveCount = aliveEnemyParty.Count;
+                            if (aliveCount == 0)
+                            {
+                                BattleActive = false;
+                                break;
+                            }
+                            if (aliveCount == 1)
+                            {
+                                tchoiceIdx = 1;
+                                break;
+                            }
+                            ui.WriteMessage("Invalid selection. Try again.");
+                            tresult = Console.ReadLine();
+                            tsuccess = int.TryParse(tresult, out tchoiceIdx);
+                        }
+                        playCard = new(player.PlayerDeck.handPile[choiceIdx - 1], player, aliveEnemyParty[tchoiceIdx - 1]);
+                    }
+                    else
+                    {
+                        playCard = new(new Card("", 0, 0, 0, "", 0, 0, false, false), null, null); // just dont do anything itll crash anyways
+                        Environment.Exit(0);
+                    }
+
                     playCard.Execute();
 
+                    // will need to be a check for enemy hit
                     BattleActive = !IsBattleOver();
+
                     if (!BattleActive) { MainPhase = false; break; }
 
                     player.Energy -= player.PlayerDeck.handPile[choiceIdx - 1].Cost;
@@ -133,10 +191,32 @@ namespace Slay_the_Spire_Design
         {
             // enemy picks its move, resolves it through card commands
             ui.WriteMessage("\tEnemy turn...");
-            dummy.Block = 0;
-            EffectActionCommand enemyAction = new(dummy._action, dummy, player);
-            enemyAction.Execute();
-            BattleActive = !IsBattleOver();
+            foreach (var enemy in aliveEnemyParty)
+            {
+                enemy.Block = 0;
+            }
+
+            foreach (var enemy in aliveEnemyParty)
+            {
+                EffectActionCommand enemyAction = new(enemy._action, enemy, player);
+                enemyAction.Execute();
+                BattleActive = !IsBattleOver();
+                if (!BattleActive)
+                {
+                    break;
+                }
+            }
+
+            if (!BattleActive)
+            {
+                return;
+            }
+
+            // tick down stats 
+            foreach (var enemy in aliveEnemyParty)
+            {
+                enemy.TickStatusDown();
+            }
 
             ui.WriteMessage("=====================================");
         }
@@ -144,7 +224,21 @@ namespace Slay_the_Spire_Design
         // rudimentary check - will need to instead be a notification for "hp modified" or the like
         public bool IsBattleOver()
         {
-            if (dummy.isDead || player.isDead)
+            if (player.isDead)
+            {
+                return true;
+            }
+
+            // TODO separate this into new function
+            for (int i = 0; i < aliveEnemyParty.Count; i++)
+            {
+                if (aliveEnemyParty[i].isDead)
+                {
+                    aliveEnemyParty.RemoveAt(i);
+                    i--;
+                }
+            }
+            if (aliveEnemyParty.Count == 0)
             {
                 return true;
             }

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Slay_the_Spire_Design
 {
@@ -82,6 +84,22 @@ namespace Slay_the_Spire_Design
             }
             return amount;
         }
+
+        public void TickStatusDown()
+        {
+            if (isDead)
+            {
+                return;
+            }
+            if (Vulnerable > 0)
+            {
+                Vulnerable -= 1;
+            }
+            if (Weak > 0)
+            {
+                Weak -= 1;
+            }
+        }
     }
 
     public class Player : Character
@@ -99,11 +117,20 @@ namespace Slay_the_Spire_Design
         }
     }
 
-    public class Dummy : Character
+    public class Enemy : Character
     {
-        public List<Action> Actions;
-        public Action _action { get; set; }
+        public List<EnemyAction> Actions;
+        public EnemyAction _action { get; set; }
+        public void ChooseAction()
+        {
+            Random random = new Random();
+            int choice = random.Next(0, Actions.Count);
+            _action = Actions[choice];
+        }
+    }
 
+    public class Dummy : Enemy
+    {
         public Dummy()
         {
             HP = 100;
@@ -114,21 +141,14 @@ namespace Slay_the_Spire_Design
             Actions = [];
             for (int i = 0; i < 2; i++)
             {
-                Action damage = new Action("Attack", 7, 0, ["Damage"]);
-                Action block = new Action("Block", 0, 4, ["Block"]);
-                Action both = new Action("Attack and Block", 3, 3,["Damage", "Block"]);
+                EnemyAction damage = new EnemyAction("Attack", 7, 0, ["Damage"]);
+                EnemyAction block = new EnemyAction("Block", 0, 4, ["Block"]);
+                EnemyAction both = new EnemyAction("Attack and Block", 3, 3,["Damage", "Block"]);
                 Actions.Add(damage);
                 Actions.Add(block);
                 Actions.Add(both);
             }
             Actions.RemoveAt(Actions.Count - 1);
-        }
-
-        public void ChooseAction()
-        {
-            Random random = new Random();
-            int choice = random.Next(0, Actions.Count);
-            _action = Actions[choice];
         }
     }
 }
